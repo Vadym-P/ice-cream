@@ -1,0 +1,89 @@
+.modal {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0) rotate(360deg) scale(1);
+  width: 95%;
+  border-radius: 10px;
+  background-color: var(--bg-pink-theme);
+  padding: 55px 40px;
+  transition: transform 250ms var(--primary-cubic);
+
+  background-image: url('../images/header/bg-milk-mob_1x.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+
+  .backdrop.is-hidden & {
+    transform: translate(200%, -50%) rotate(180deg) scale(0);
+  }
+}
+
+@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  .modal {
+    background-image: url('../images/header/bg-milk-mob_@2x.png');
+  }
+}
+
+.modal__close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  background: var(--bg-pink-theme);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.modal-close__btn-icon {
+  fill: var(--secondary-color);
+  transition: fill 250ms var(--primary-cubic);
+
+  .modal__close-btn:hover &,
+  .modal__close-btn:focus & {
+    fill: var(--accent-color);
+  }
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@media screen and (min-height: 600px) {
+  .modal {
+    position: absolute;
+    top: 50%;
+
+    transform: translate(-50%, -50%) rotate(360deg) scale(1);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .modal {
+    max-width: 450px;
+  }
+}
+
+@media screen and (min-width: $tablet-media) {
+  .modal {
+    width: 450px;
+  }
+}
+
+@media screen and (min-width: $desktop-media) {
+  .modal {
+    width: 528px;
+    height: 581px;
+    padding: 65px 40px;
+
+    .backdrop.is-hidden & {
+      transform: translate(200%, -50%) rotate(180deg) scale(0);
+    }
+  }
+}
